@@ -1,5 +1,4 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
@@ -76,9 +75,6 @@ module.exports = {
             },
           },
           {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
             loader: 'css-loader',
             options: {
               sourceMap: false,
@@ -108,7 +104,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
-              data: '@import "@/globalStyle/_variables.scss";',
             },
           },
         ],
@@ -128,6 +123,8 @@ module.exports = {
       '.wasm',
       '.ts',
       '.tsx',
+      '.css',
+      '.scss'
     ],
     modules: ['node_modules'],
   },
