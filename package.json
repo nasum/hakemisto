@@ -18,7 +18,11 @@
     "forge": "./forge.config.js"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "6.0.0-beta.39",
@@ -27,8 +31,12 @@
     "@electron-forge/maker-squirrel": "6.0.0-beta.39",
     "@electron-forge/maker-zip": "6.0.0-beta.39",
     "@electron-forge/plugin-webpack": "^6.0.0-beta.39",
+    "css-loader": "^3.0.0",
     "electron": "5.0.3",
+    "mini-css-extract-plugin": "^0.7.0",
+    "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "vue-template-compiler": "^2.6.10"
   }
 }
