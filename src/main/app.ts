@@ -1,5 +1,9 @@
 declare var MAIN_WINDOW_WEBPACK_ENTRY: string;
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain, Event } from 'electron'
+import fs from 'fs'
+import path from 'path'
+import readChunk from 'read-chunk'
+import fileType from 'file-type'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -15,6 +19,9 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   // and load the index.html of the app.
@@ -56,3 +63,53 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on('getFiles', (event: Event, dirPath: string) => {
+  if (dirPath === null || dirPath === undefined) {
+    const userHome = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
+    if (userHome) {
+      dirPath = userHome
+    } else {
+      dirPath = '/'
+    }
+  }
+  fs.readdir(dirPath, (err, files) => {
+    if (err) throw err
+
+    const fileList = []
+    for (const file of files) {
+      const filePath = `${dirPath}/${file}`
+
+      try {
+        const isFile = fs.statSync(filePath).isFile()
+        let type = ''
+        let data = ''
+        if (isFile) {
+          const chunk = readChunk.sync(filePath, 0, fileType.minimumBytes)
+          const binary = fs.readFileSync(filePath)
+          if (chunk !== undefined) {
+            const filetype = fileType(chunk)
+            if (filetype !== undefined) {
+              type = filetype.mime
+              data = new Buffer(binary).toString('base64')
+            }
+          }
+        }
+        
+        fileList.push({
+          path: filePath,
+          displayName: file,
+          isFile: isFile,
+          fileType: type,
+          data: data,
+        })
+      } catch (err) {
+        if(err.code !== 'ENOENT') {
+          throw err
+        }
+      }
+    }
+
+    event.sender.send('receiveFiles', fileList)
+  })
+})

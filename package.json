@@ -20,7 +20,9 @@
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
     "element-ui": "^2.9.1",
+    "file-type": "^12.0.0",
     "normalize.css": "^8.0.1",
+    "read-chunk": "^3.2.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.6",
@@ -37,6 +39,7 @@
     "electron": "5.0.3",
     "file-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "ts-loader": "^6.0.2",
     "typescript": "^3.5.2",
