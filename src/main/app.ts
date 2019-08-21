@@ -1,5 +1,5 @@
 declare var MAIN_WINDOW_WEBPACK_ENTRY: string;
-import { app, BrowserWindow, ipcMain, Event } from 'electron'
+import { app, BrowserWindow, ipcMain, IpcMainEvent } from 'electron'
 import fs from 'fs'
 import path from 'path'
 import readChunk from 'read-chunk'
@@ -64,7 +64,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-ipcMain.on('getFiles', (event: Event, dirPath: string) => {
+ipcMain.on('getFiles', (event: IpcMainEvent, dirPath: string) => {
   if (dirPath === null || dirPath === undefined) {
     const userHome = process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
     if (userHome) {
@@ -109,7 +109,7 @@ ipcMain.on('getFiles', (event: Event, dirPath: string) => {
         }
       }
     }
-
+    
     event.sender.send('receiveFiles', fileList)
   })
 })
