@@ -1,16 +1,24 @@
-import Vue from 'vue'
-import ElementUI from 'element-ui';
-import locale from 'element-ui/lib/locale/lang/ja'
-import 'normalize.css'
-import 'element-ui/lib/theme-chalk/index.css';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import ElementUI from "element-ui";
+import locale from "element-ui/lib/locale/lang/ja";
+import "normalize.css";
+import "element-ui/lib/theme-chalk/index.css";
 
-import store from './store/index'
+import routes from "./route";
+import store from "./store/index";
 
-import Main from './components/pages/main.vue'
+import Default from "./components/layouts/default.vue";
 
+const router = new VueRouter({
+  routes
+});
+
+Vue.use(VueRouter)
 Vue.use(ElementUI, { locale });
 
 new Vue({
-  render: h => h(Main),
-  store
-}).$mount('#app')
+  render: h => h(Default),
+  store,
+  router
+}).$mount("#app");

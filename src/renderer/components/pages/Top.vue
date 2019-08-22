@@ -9,7 +9,7 @@
             :src="'data:' + fileObj.fileType + ';base64,' + fileObj.data"
           />
           <i class="el-icon-document" v-else-if="fileObj.isFile"></i>
-          <i class="el-icon-folder" v-else @dblclick="openFolder(fileObj.path)"></i>
+          <i class="el-icon-folder" v-else @dblclick="selectFolder(fileObj.path)"></i>
         </div>
         <el-tooltip effect="dark" :content="fileObj.displayName" placement="bottom-start">
           <span>{{ fileObj.displayName }}</span>
@@ -20,20 +20,23 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from "vue";
+import { createNamespacedHelpers } from "vuex";
+
+const { mapState, mapActions } = createNamespacedHelpers("Main");
 
 export default Vue.extend({
-  props:['fileList'],
-  data() {
-    return {
-    }
+  name: "top",
+  computed: {
+    ...mapState(["fileList"])
   },
   methods: {
-    openFolder(path: string){
-      this.$emit('selectFolder',path)
-    }
+    ...mapActions(["initialize", "setFileList", "selectFolder"])
+  },
+  mounted() {
+    this.initialize();
   }
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -66,5 +69,3 @@ export default Vue.extend({
   }
 }
 </style>
-
-
