@@ -92,7 +92,8 @@ ipcMain.on("getFiles", (event: IpcMainEvent, dirPath: string) => {
             const filetype = fileType(chunk);
             if (filetype !== undefined) {
               type = filetype.mime.toString();
-              if (["jpg", "png", "gif", "bmp"].indexOf(type) > 0) {
+              console.log(type);
+              if (type.match(/jpeg|jpg|png|gif|bmp"/)) {
                 const binary = fs.readFileSync(filePath);
                 data = new Buffer(binary).toString("base64");
               }
