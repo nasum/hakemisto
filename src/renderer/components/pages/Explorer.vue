@@ -23,10 +23,10 @@
 import Vue from "vue";
 import { createNamespacedHelpers } from "vuex";
 
-const { mapState, mapActions } = createNamespacedHelpers("Main");
+const { mapState, mapActions } = createNamespacedHelpers("Explorer");
 
 export default Vue.extend({
-  name: "top",
+  name: "explorer",
   computed: {
     ...mapState(["fileList"])
   },

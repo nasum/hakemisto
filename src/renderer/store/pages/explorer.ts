@@ -11,15 +11,15 @@ type FileType = {
   data: string
 }
 
-export type MainState = {
+export type ExplorerState = {
   fileList: FileType[]
 }
 
-const state = ():MainState => ({
+const state = ():ExplorerState => ({
   fileList: []
 })
 
-const actions: ActionTree<MainState, RootState> = {
+const actions: ActionTree<ExplorerState, RootState> = {
   initialize({ dispatch }){
     ipcRenderer.send('getFiles')
     ipcRenderer.on('receiveFiles', (event: Event, fileList: any[]) => {
@@ -34,18 +34,18 @@ const actions: ActionTree<MainState, RootState> = {
   }
 }
 
-const mutations: MutationTree<MainState> = {
-  setFileList(state: MainState, fileList:FileType[]) {
+const mutations: MutationTree<ExplorerState> = {
+  setFileList(state: ExplorerState, fileList:FileType[]) {
     state.fileList = fileList
   }
 }
 
 
-const Main = {
+const Explorer = {
   namespaced: true,
   state: state,
   mutations: mutations,
   actions: actions
 }
 
-export default Main
+export default Explorer
