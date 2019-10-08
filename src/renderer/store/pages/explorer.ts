@@ -20,8 +20,8 @@ const state = ():ExplorerState => ({
 })
 
 const actions: ActionTree<ExplorerState, RootState> = {
-  initialize({ dispatch }){
-    ipcRenderer.send('getFiles')
+  initialize({ dispatch }, path = ""){
+    ipcRenderer.send('getFiles', path)
     ipcRenderer.on('receiveFiles', (event: Event, fileList: any[]) => {
       dispatch('setFileList', fileList)
     })

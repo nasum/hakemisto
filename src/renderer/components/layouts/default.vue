@@ -1,7 +1,7 @@
 <template>
   <el-container direction="vertical">
     <el-menu mode="horizontal" :router="true">
-      <el-menu-item index="/">Browser</el-menu-item>
+      <el-menu-item index="/explorer">Browser</el-menu-item>
       <el-menu-item index="/history">History</el-menu-item>
       <el-menu-item index="/setting">Setting</el-menu-item>
     </el-menu>

@@ -6,11 +6,16 @@ import History from "@renderer/components/pages/History.vue";
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+const router = new VueRouter({
+  mode: "history",
   routes: [
     {
-      path: "/",
-      component: Explorer
+      path: "/explorer",
+      component: Explorer,
+      children: [{
+        path: "*",
+        component: Explorer
+      }]
     },
     {
       path: "/history",
@@ -18,3 +23,5 @@ export default new VueRouter({
     }
   ]
 });
+
+export default router

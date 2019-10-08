@@ -9,7 +9,7 @@
             :src="'data:' + fileObj.fileType + ';base64,' + fileObj.data"
           />
           <i class="el-icon-document" v-else-if="fileObj.isFile"></i>
-          <i class="el-icon-folder" v-else @dblclick="selectFolder(fileObj.path)"></i>
+          <i class="el-icon-folder" v-else @dblclick="clickFolder(fileObj.path)"></i>
         </div>
         <el-tooltip effect="dark" :content="fileObj.displayName" placement="bottom-start">
           <span>{{ fileObj.displayName }}</span>
@@ -27,14 +27,26 @@ const { mapState, mapActions } = createNamespacedHelpers("Explorer");
 
 export default Vue.extend({
   name: "explorer",
+  data() {
+    return {
+      loaded: false
+    };
+  },
   computed: {
     ...mapState(["fileList"])
   },
   methods: {
-    ...mapActions(["initialize", "setFileList", "selectFolder"])
+    ...mapActions(["initialize", "setFileList", "selectFolder"]),
+    clickFolder(path: string) {
+      this.$router.push("/explorer/" + path);
+    }
   },
   mounted() {
     this.initialize();
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.selectFolder(to.params.pathMatch);
+    next()
   }
 });
 </script>
