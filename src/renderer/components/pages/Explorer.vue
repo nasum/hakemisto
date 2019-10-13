@@ -1,5 +1,9 @@
 <template>
-  <div class="explorer">
+<div class="explorer">
+  <el-input placeholder="Please input" v-model="currentPath">
+    <template slot="prepend">Path</template>
+  </el-input>
+  <div class="file-list">
     <div v-for="(fileObj, index) in fileList" :key="index" class="item-wrapper">
       <div class="item">
         <div>
@@ -17,6 +21,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -33,12 +38,12 @@ export default Vue.extend({
     };
   },
   computed: {
-    ...mapState(["fileList"])
+    ...mapState(["currentPath", "fileList"])
   },
   methods: {
     ...mapActions(["initialize", "setFileList", "selectFolder"]),
     clickFolder(path: string) {
-      this.$router.push("/explorer/" + path);
+      this.$router.push("/explorer" + path);
     }
   },
   mounted() {
@@ -52,7 +57,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.explorer {
+.file-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

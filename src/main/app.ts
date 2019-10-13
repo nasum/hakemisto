@@ -66,7 +66,7 @@ app.on("activate", () => {
 // code. You can also put them in separate files and import them here.
 
 ipcMain.on("getFiles", (event: IpcMainEvent, dirPath: string) => {
-  if (dirPath === null || dirPath === undefined || dirPath === "") {
+  if (dirPath === null || dirPath === undefined || dirPath === "~/") {
     const userHome =
       process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
     if (userHome) {
