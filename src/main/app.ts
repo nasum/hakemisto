@@ -38,6 +38,15 @@ const createWindow = () => {
     // when you should delete the corresponding element.
     closeFlg = true;
   });
+
+  if (process.env.NODE_ENV === 'development') {
+    let installExtension = require('electron-devtools-installer')
+    installExtension.default(installExtension.VUEJS_DEVTOOLS)
+      .then((name: string) => console.log(`Added Extension:  ${name}`))
+      .catch((err: string) => {
+        console.log('Unable to install `vue-devtools`: \n', err)
+      })
+  }
 };
 
 // This method will be called when Electron has finished
