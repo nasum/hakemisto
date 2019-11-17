@@ -11,8 +11,9 @@
               class="item-img"
               v-if="fileObj.fileType.indexOf('image') >= 0"
               :src="'data:' + fileObj.fileType + ';base64,' + fileObj.data"
+              @dblclick="doubleClickFile(fileObj.path)"
             />
-            <i class="el-icon-document" v-else-if="fileObj.isFile"></i>
+            <i class="el-icon-document" v-else-if="fileObj.isFile" @dblclick="doubleClickFile(fileObj.path)"></i>
             <i class="el-icon-folder" v-else @dblclick="clickFolder(fileObj.path)"></i>
           </div>
           <el-tooltip effect="dark" :content="fileObj.displayName" placement="bottom-start">
@@ -41,9 +42,12 @@ export default Vue.extend({
     ...mapState(["currentPath", "fileList"])
   },
   methods: {
-    ...mapActions(["initialize", "setFileList", "selectFolder"]),
+    ...mapActions(["initialize", "setFileList", "selectFolder", "selectFile"]),
     clickFolder(path: string) {
       this.$router.push("/explorer" + path);
+    },
+    doubleClickFile(path: string) {
+      this.selectFile(path);
     }
   },
   mounted() {

@@ -40,6 +40,9 @@ const actions: ActionTree<ExplorerState, RootState> = {
     }
     ipcRenderer.send('getFiles', absolutePath)
     commit('setCurrentPath', absolutePath)
+  },
+  selectFile(_, path: string) {
+    ipcRenderer.send('openFile', path)
   }
 }
 

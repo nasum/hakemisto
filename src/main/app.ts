@@ -1,9 +1,9 @@
 declare var MAIN_WINDOW_WEBPACK_ENTRY: string;
 import { app, BrowserWindow, ipcMain, IpcMainEvent } from "electron";
 import fs from "fs";
-import path from "path";
 import readChunk from "read-chunk";
 import fileType from "file-type";
+import { execFile } from "child_process"
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -126,4 +126,8 @@ ipcMain.on("getFiles", (event: IpcMainEvent, dirPath: string) => {
 
     event.sender.send("receiveFiles", fileList);
   });
+
+  ipcMain.on('openFile', (event: IpcMainEvent, filePath: string) => {
+    // TODO implements open file function
+  })
 });
