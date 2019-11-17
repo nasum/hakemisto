@@ -1,27 +1,27 @@
 <template>
-<div class="explorer">
-  <el-input placeholder="Please input" v-model="currentPath">
-    <template slot="prepend">Path</template>
-  </el-input>
-  <div class="file-list">
-    <div v-for="(fileObj, index) in fileList" :key="index" class="item-wrapper">
-      <div class="item">
-        <div>
-          <img
-            class="item-img"
-            v-if="fileObj.fileType.indexOf('image') >= 0"
-            :src="'data:' + fileObj.fileType + ';base64,' + fileObj.data"
-          />
-          <i class="el-icon-document" v-else-if="fileObj.isFile"></i>
-          <i class="el-icon-folder" v-else @dblclick="clickFolder(fileObj.path)"></i>
+  <div class="explorer">
+    <el-input placeholder="Please input" v-model="currentPath">
+      <template slot="prepend">Path</template>
+    </el-input>
+    <div class="file-list">
+      <div v-for="(fileObj, index) in fileList" :key="index" class="item-wrapper">
+        <div class="item">
+          <div>
+            <img
+              class="item-img"
+              v-if="fileObj.fileType.indexOf('image') >= 0"
+              :src="'data:' + fileObj.fileType + ';base64,' + fileObj.data"
+            />
+            <i class="el-icon-document" v-else-if="fileObj.isFile"></i>
+            <i class="el-icon-folder" v-else @dblclick="clickFolder(fileObj.path)"></i>
+          </div>
+          <el-tooltip effect="dark" :content="fileObj.displayName" placement="bottom-start">
+            <span>{{ fileObj.displayName }}</span>
+          </el-tooltip>
         </div>
-        <el-tooltip effect="dark" :content="fileObj.displayName" placement="bottom-start">
-          <span>{{ fileObj.displayName }}</span>
-        </el-tooltip>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
@@ -51,7 +51,7 @@ export default Vue.extend({
   },
   beforeRouteUpdate(to, from, next) {
     this.selectFolder(to.params.pathMatch);
-    next()
+    next();
   }
 });
 </script>

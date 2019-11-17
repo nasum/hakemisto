@@ -2,7 +2,6 @@ import { MutationTree, ActionTree, Module } from 'vuex'
 import { ipcRenderer } from 'electron'
 
 import { RootState } from '../index'
-import { stringify } from 'querystring'
 
 type FileType = {
   path: string,
@@ -23,7 +22,7 @@ const state = (): ExplorerState => ({
 })
 
 const actions: ActionTree<ExplorerState, RootState> = {
-  initialize({ dispatch }, path = "~/"){
+  initialize({ dispatch }, path = "~/") {
     ipcRenderer.send('getFiles', path)
     ipcRenderer.on('receiveFiles', (event: Event, fileList: any[]) => {
       dispatch('setFileList', fileList)
@@ -33,7 +32,12 @@ const actions: ActionTree<ExplorerState, RootState> = {
     commit('setFileList', fileList)
   },
   selectFolder({ commit }, path: string) {
-    const absolutePath = '/' + path
+    let absolutePath = ''
+    if (path === undefined) {
+      absolutePath = '~/'
+    } else {
+      absolutePath = '/' + path
+    }
     ipcRenderer.send('getFiles', absolutePath)
     commit('setCurrentPath', absolutePath)
   }
