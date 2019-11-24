@@ -3,7 +3,7 @@
     <el-menu mode="horizontal" :router="true">
       <el-menu-item index="/explorer">Browser</el-menu-item>
       <el-menu-item index="/history">History</el-menu-item>
-      <el-menu-item index="/setting">Setting</el-menu-item>
+      <el-menu-item index="/setting/default_application">Setting</el-menu-item>
     </el-menu>
     <el-main class="default-layout-main">
       <router-view />
