@@ -20,7 +20,17 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: "mplus";
+  src: url("../../assets/fonts/mplus-1c-light.ttf") format("truetype");
+}
+
+body {
+  font-family: mplus;
+}
+
 .default-layout {
+  font-family: mplus;
   height: 100%;
   &-main {
     height: 100%;
