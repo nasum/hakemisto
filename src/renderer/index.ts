@@ -5,7 +5,7 @@ import "normalize.css";
 import "element-ui/lib/theme-chalk/index.css";
 
 import router from "./route";
-import store from "./store/index";
+import store from "./store/Index";
 
 import Default from "./components/layouts/default.vue";
 

@@ -1,7 +1,7 @@
 import { MutationTree, ActionTree, Module } from 'vuex'
 import { ipcRenderer } from 'electron'
 
-import { RootState } from '../index'
+import { RootState } from '../../Index'
 
 type FileType = {
   path: string,

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 
-import Explorer, { ExplorerState } from './pages/explorer'
+import Explorer, { ExplorerState } from './pages/explorer/Index'
 
 Vue.use(Vuex)
 
