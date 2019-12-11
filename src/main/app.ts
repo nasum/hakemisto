@@ -3,7 +3,7 @@ import { app, BrowserWindow, ipcMain, IpcMainEvent } from "electron";
 import fs from "fs";
 import readChunk from "read-chunk";
 import fileType from "file-type";
-import { execFile } from "child_process"
+import { execFile } from "child_process";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -22,7 +22,8 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    autoHideMenuBar: true
   });
 
   // and load the index.html of the app.
@@ -39,13 +40,14 @@ const createWindow = () => {
     closeFlg = true;
   });
 
-  if (process.env.NODE_ENV === 'development') {
-    let installExtension = require('electron-devtools-installer')
-    installExtension.default(installExtension.VUEJS_DEVTOOLS)
+  if (process.env.NODE_ENV === "development") {
+    let installExtension = require("electron-devtools-installer");
+    installExtension
+      .default(installExtension.VUEJS_DEVTOOLS)
       .then((name: string) => console.log(`Added Extension:  ${name}`))
       .catch((err: string) => {
-        console.log('Unable to install `vue-devtools`: \n', err)
-      })
+        console.log("Unable to install `vue-devtools`: \n", err);
+      });
   }
 };
 
@@ -127,7 +129,7 @@ ipcMain.on("getFiles", (event: IpcMainEvent, dirPath: string) => {
     event.sender.send("receiveFiles", fileList);
   });
 
-  ipcMain.on('openFile', (event: IpcMainEvent, filePath: string) => {
+  ipcMain.on("openFile", (event: IpcMainEvent, filePath: string) => {
     // TODO implements open file function
-  })
+  });
 });
