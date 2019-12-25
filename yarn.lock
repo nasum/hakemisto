@@ -165,13 +165,13 @@
     fs-extra "^8.1.0"
     which "^2.0.2"
 
-"@electron-forge/maker-deb@6.0.0-beta.44":
-  version "6.0.0-beta.44"
-  resolved "https://registry.yarnpkg.com/@electron-forge/maker-deb/-/maker-deb-6.0.0-beta.44.tgz#961005b07e957cf765c32de3027dddca82ccb2a1"
-  integrity sha512-0ViaQV3PFsAR2FdjOpmwY2YVcbNAfiOG+/Nz9vk6VSp2nwTRenBtM2bazUiJ4lUPrPv2hNDcVun3pg358V+A8Q==
+"@electron-forge/maker-deb@6.0.0-beta.47":
+  version "6.0.0-beta.47"
+  resolved "https://registry.yarnpkg.com/@electron-forge/maker-deb/-/maker-deb-6.0.0-beta.47.tgz#101dd3c75565587ac9d5737677ac1776ddbf3b8d"
+  integrity sha512-oR4awUwbte6/RFhseUVVjQW7mikiel/jPraBv9Jh6RuLLShe8x0+f8+nAjoJ1QbuxrQdXyDDipBAKPybE5ydkw==
   dependencies:
-    "@electron-forge/maker-base" "6.0.0-beta.44"
-    "@electron-forge/shared-types" "6.0.0-beta.44"
+    "@electron-forge/maker-base" "6.0.0-beta.47"
+    "@electron-forge/shared-types" "6.0.0-beta.47"
   optionalDependencies:
     electron-installer-debian "^2.0.0"
 
@@ -5220,7 +5220,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.5.0, schema-utils@^2.6.0:
+schema-utils@^2.1.0, schema-utils@^2.5.0, schema-utils@^2.6.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.1.tgz#eb78f0b945c7bcfa2082b3565e8db3548011dc4f"
   integrity sha512-0WXHDs1VDJyo+Zqs9TKLKyD/h7yDpHUhEFsM2CzkICFdoX1av+GBq/J2xRTFfsQO5kBfhZzANf2VcIm84jqDbg==
