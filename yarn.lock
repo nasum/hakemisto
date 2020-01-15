@@ -2322,10 +2322,10 @@ file-loader@^5.0.2:
     loader-utils "^1.2.3"
     schema-utils "^2.5.0"
 
-file-type@^13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/file-type/-/file-type-13.0.2.tgz#99baeffc3989e4fdb189534700b6b494e114da74"
-  integrity sha512-7ZgM94zayCOwYUxUzsyI32TCd4cX1VepB75cqJR3DAnm4WS/lZKxc4LyhbBhCK71XPhZWKvLHD2voVcWeOv0MA==
+file-type@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-13.1.0.tgz#5cfeade4745fad9504bb1435b5b5003af272b5a8"
+  integrity sha512-nr4fSvwYSlQl7YmaWS8rsvDrAm6VgCeb2ysHh18+YBSH4RxewhPKUQrj2XRuEMBNnH6E4xw+yWTL7+jiMrh6GA==
   dependencies:
     readable-web-to-node-stream "^2.0.0"
     strtok3 "^5.0.1"
