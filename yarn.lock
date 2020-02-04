@@ -18,6 +18,17 @@
     ora "^4.0.3"
     pretty-ms "^5.0.0"
 
+"@electron-forge/async-ora@6.0.0-beta.48":
+  version "6.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@electron-forge/async-ora/-/async-ora-6.0.0-beta.48.tgz#7ec801c4f5cfc73bd8bb93f8b0467ee3dab1a757"
+  integrity sha512-BCeYfR+sO/G8BHvJL+GJnIgOj+G4qtOHZ5pMfo2Iw+WCQ6zQsvDmJ+qpDGM0IFP9ER2cMc5szIyONEPNQVOyww==
+  dependencies:
+    colors "^1.4.0"
+    debug "^4.1.0"
+    log-symbols "^3.0.0"
+    ora "^4.0.3"
+    pretty-ms "^5.0.0"
+
 "@electron-forge/cli@6.0.0-beta.47":
   version "6.0.0-beta.47"
   resolved "https://registry.yarnpkg.com/@electron-forge/cli/-/cli-6.0.0-beta.47.tgz#98509c91844ffcc137992c0dfd6bb0f8a5fb0cc1"
@@ -198,22 +209,29 @@
   dependencies:
     "@electron-forge/shared-types" "6.0.0-beta.47"
 
-"@electron-forge/plugin-webpack@6.0.0-beta.47":
-  version "6.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@electron-forge/plugin-webpack/-/plugin-webpack-6.0.0-beta.47.tgz#fe2941fb4a8946cd1415f65c8e952fd778aa53a4"
-  integrity sha512-tlhxwT8QtMI80ZfKnRHkS7bA53/ct3eh83P0YRcbZ/eH+sbi+19dIAk6IErw9rYMZ+CegG7OrAdj7yFqosQykw==
+"@electron-forge/plugin-base@6.0.0-beta.48":
+  version "6.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@electron-forge/plugin-base/-/plugin-base-6.0.0-beta.48.tgz#f6cbab391463bbde2d37b624e61d2d1d9af78b3b"
+  integrity sha512-9CdWNDhxaMBF//yj5DdteBv9e4ms075aGGx575jOFK3c686BSGdZHjF/yJnul5OrKJlA4tlj05ZUo0b+IPQVVA==
   dependencies:
-    "@electron-forge/async-ora" "6.0.0-beta.47"
-    "@electron-forge/plugin-base" "6.0.0-beta.47"
-    "@electron-forge/shared-types" "6.0.0-beta.47"
-    "@electron-forge/web-multi-logger" "6.0.0-beta.47"
+    "@electron-forge/shared-types" "6.0.0-beta.48"
+
+"@electron-forge/plugin-webpack@6.0.0-beta.48":
+  version "6.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@electron-forge/plugin-webpack/-/plugin-webpack-6.0.0-beta.48.tgz#a008be650f4c40d9f324fc77c6417e2533d19770"
+  integrity sha512-Iyl+f3QEbgzbaph4NuX4TcVhF1dyu3jwIQp4qe65ismItlEmTHDoO/QhXdzmXJ2aApV7rHt/5p8HmM9R5kY2Vg==
+  dependencies:
+    "@electron-forge/async-ora" "6.0.0-beta.48"
+    "@electron-forge/plugin-base" "6.0.0-beta.48"
+    "@electron-forge/shared-types" "6.0.0-beta.48"
+    "@electron-forge/web-multi-logger" "6.0.0-beta.48"
     cross-spawn-promise "^0.10.1"
     debug "^4.1.0"
     express "^4.17.1"
     fs-extra "^8.1.0"
     global "^4.3.2"
     html-webpack-plugin "^3.2.0"
-    webpack "^4.41.2"
+    webpack "^4.41.4"
     webpack-dev-middleware "^3.7.2"
     webpack-hot-middleware "^2.25.0"
     webpack-merge "^4.2.2"
@@ -229,6 +247,16 @@
   integrity sha512-bD2bId56tuqhVzPRDEGaS4Qw4K/AFleftstznQOmkBDpBG3R+roN4y35kiiZ7aVu3ymzzFQ414Kh5s9MwBKHPw==
   dependencies:
     "@electron-forge/async-ora" "6.0.0-beta.47"
+    "@types/electron-packager" "^14.0.0"
+    electron-rebuild "^1.8.6"
+    ora "^4.0.3"
+
+"@electron-forge/shared-types@6.0.0-beta.48":
+  version "6.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@electron-forge/shared-types/-/shared-types-6.0.0-beta.48.tgz#485291ab37c98185aa1f12807cb8b5243402ff1a"
+  integrity sha512-HQu9D50oj4hxvSqXsO91LUg365siGL9tnMXMS3s/4p05UkFVeECiQCTq6vSeAsAm+MRKj+STddrVJPGjGzsxfA==
+  dependencies:
+    "@electron-forge/async-ora" "6.0.0-beta.48"
     "@types/electron-packager" "^14.0.0"
     electron-rebuild "^1.8.6"
     ora "^4.0.3"
@@ -274,14 +302,16 @@
     "@electron-forge/template-base" "6.0.0-beta.47"
     fs-extra "^8.1.0"
 
-"@electron-forge/web-multi-logger@6.0.0-beta.47":
-  version "6.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@electron-forge/web-multi-logger/-/web-multi-logger-6.0.0-beta.47.tgz#508bbcf81e760aab8f59145a6d74077f447849e4"
-  integrity sha512-mkE65ULZwWFQc7IchGxWExY9LDooaeVB0BXHdYpVV/ZKAREv1lykLXSR93q6Dkr29/+3OCGtYITXH6zo0sByXQ==
+"@electron-forge/web-multi-logger@6.0.0-beta.48":
+  version "6.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@electron-forge/web-multi-logger/-/web-multi-logger-6.0.0-beta.48.tgz#1e8d956a8daf7b332e80e7f153c317e06b2a6934"
+  integrity sha512-tOxqffQO21FbqnIeBxkoVf4l/sWYICESNL5u1c5GnAAY16r9W133sHpDmgicZAXW/XsmHwR/+Q1/5A9s8YvvHQ==
   dependencies:
     express "^4.17.1"
     express-ws "^4.0.0"
     xterm "^4.2.0"
+    xterm-addon-fit "^0.3.0"
+    xterm-addon-search "^0.4.0"
 
 "@electron/get@^1.0.1", "@electron/get@^1.3.1", "@electron/get@^1.6.0":
   version "1.7.2"
@@ -6425,10 +6455,10 @@ webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.41.2:
-  version "4.41.4"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.4.tgz#4bec4125224bdf50efa8be6226c19047599cd034"
-  integrity sha512-Lc+2uB6NjpCWsHI3trkoISOI64h9QYIXenbEWj3bn3oyjfB1lEBXjWAfAyY2sM0rZn41oD5V91OLwKRwS6Wp8Q==
+webpack@^4.41.4:
+  version "4.41.5"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.5.tgz#3210f1886bce5310e62bb97204d18c263341b77c"
+  integrity sha512-wp0Co4vpyumnp3KlkmpM5LWuzvZYayDwM2n17EHFr4qxBBbRokC7DJawPJC7TfSFZ9HZ6GsdH40EBj4UV0nmpw==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
@@ -6556,6 +6586,16 @@ xtend@~2.1.1:
   integrity sha1-bv7MKk2tjmlixJAbM3znuoe10os=
   dependencies:
     object-keys "~0.4.0"
+
+xterm-addon-fit@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/xterm-addon-fit/-/xterm-addon-fit-0.3.0.tgz#341710741027de9d648a9f84415a01ddfdbbe715"
+  integrity sha512-kvkiqHVrnMXgyCH9Xn0BOBJ7XaWC/4BgpSWQy3SueqximgW630t/QOankgqkvk11iTOCwWdAY9DTyQBXUMN3lw==
+
+xterm-addon-search@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/xterm-addon-search/-/xterm-addon-search-0.4.0.tgz#a7beadb3caa7330eb31fb1f17d92de25537684a1"
+  integrity sha512-g07qb/Z4aSfrQ25e6Z6rz6KiExm2DvesQXkx+eA715VABBr5VM/9Jf0INoCiDSYy/nn7rpna+kXiGVJejIffKg==
 
 xterm@^4.2.0:
   version "4.3.0"
